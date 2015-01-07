@@ -1,3 +1,5 @@
+<?php
+
 class Bird{
 	//class body
 	//class body
@@ -60,3 +62,64 @@ print $horse->name;
 $cow1 = new Cow();
 print $cow->name;
 // default name
+
+
+class Human {
+	public $firstName = “default name”;
+	public $lastName = “default last name”;
+	public $gender = “male”;
+	public $age = 0;
+
+	function getName() {
+	return “{$this->firstName}” .
+	“{$this->lastName}”;
+	}
+}
+
+$human1 = new Human();
+$dog1->firstName = “Billy”;
+$dog1->lastName = “Bob”;
+
+print “This human’s name is {$human1->getName()}.”;
+
+//The human’s name is Billy Bob.
+
+class Bird {
+	public $firstName = “default name”;
+	public $lastName = “default last name”;
+	public $gender = “male”;
+	public $price = 0;
+
+	function getName() {
+	return “{$this->firstName}” .
+	“{$this->lastName}”;
+	}
+}
+
+$bird1 = new Bird();
+$bird1->firstName = “Talon”;
+$bird1->lastName = “Flame”;
+
+print “This bird’s name is {$bird1->getName()}.”;
+
+//The bird’s name is Talon Flame.
+
+class Rabbit {
+	public $firstName = “default name”;
+	public $lastName = “default last name”;
+	public $gender = “male”;
+	public $price = 0;
+
+	function getName() {
+	return “{$this->firstName}” .
+	“{$this->lastName}”;
+	}
+}
+
+$rabbit1 = new Rabbit();
+$rabbit1->firstName = “Oliver”;
+$rabbit1->lastName = “Nguyen”;
+
+print “The rabbit’s name is {$dog1->getName()}.”;
+
+//The rabbit’s name is Oliver Nguyen.
