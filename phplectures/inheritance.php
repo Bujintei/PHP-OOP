@@ -87,3 +87,44 @@ $player = new ssbmPlayer("C9", "MaNg0" ,"no" ,"no", "yes");
 echo "New Super Smash Bros Melee Player " . $player->getName() . " is destroying everyone!";
 
 echo "<br>";
+
+/* ~~~~~ Example 3 ~~~~~ */
+
+class Criminal {
+	public $firstName;
+	public $lastName;
+	public $prisonSentence;
+	public $crime;
+	public $bail;
+
+	function __construct($firstName, $lastName, $prisonSentence, $crime, $bail) {
+		$this->firstName = $firstName;
+		$this->lastName = $lastName;
+		$this->prisonSentence = $prisonSentence;
+		$this->crime = $crime;
+		$this->bail = $bail;
+	}
+
+	function getName() {
+		return $this->firstName . " $this->lastName";
+	}
+
+}
+
+class GradeA extends Criminal {
+	function greet() {
+		return $this->crime . $this->prisonSentence;
+	}
+}
+
+class GradeF extends Criminal {
+	function hello() {
+		return $this->crime . $this->prisonSentence;
+	}
+}
+
+
+$criminal = new Criminal("Diego", "Sanchez" ,"life sentence" ,"murder", "$100,00");
+echo "Criminal " . $criminal->getName() . " murdered Phillip!";
+
+echo "<br>";
