@@ -6,15 +6,11 @@ class Human {
 	public $firstName;
 	public $lastName;
 	public $gender;
-	public $eatsMeat;
-	public $eatsVegetables;
 
-	function __construct($firstName, $lastName, $gender, $eatsMeat, $eatsVegetables) {
+	function __construct($firstName, $lastName, $gender) {
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;
 		$this->gender = $gender;
-		$this->eatsMeat = $eatsMeat;
-		$this->eatsVegetables = $eatsVegetables;
 	}
 
 	function getName() {
@@ -24,25 +20,27 @@ class Human {
 }
 
 class Carnivore extends Human {
+	function __construct($firstName, $lastName, $gender, $eatsMeat) {
+		parent::__construct($firstName, $lastName, $gender);
+		$this->eatsMeat = $eatsMeat;
+	}
 	function greet() {
 		return $this->eatsMeat;
 	}
 }
 
 class Herbivore extends Human {
+	function __construct($firstName, $lastName, $gender, $eatsVegetables) {
+		parent::__construct($firstName, $lastName, $gender);
+		$this->eatsVegetables = $eatsVegetables;
+	}
 	function hello() {
 		return $this->eatsVegetables;
 	}
 }
 
-class Omnivore extends Human {
-	function welcome() {
-		return $this->eatsMeat . $this->eatsVegetables;
-	}
-}
-
-$human = new Human("Brandon", "Nguyen" ,"male" ,"yes", "yes");
-echo "Human numero uno is " . $human->getName();
+$Carnivore = new Carnivore("Brandon", "Nguyen" ,"male", "yes");
+echo $Carnivore->getName() . " is a Carnivore";
 
 echo "<br>";
 
@@ -53,15 +51,11 @@ class ssbmPlayer {
 	public $firstName;
 	public $lastName;
 	public $rekt;
-	public $fourStocked;
-	public $epicString;
 
-	function __construct($firstName, $lastName, $rekt, $fourStocked, $epicString) {
+	function __construct($firstName, $lastName, $rekt) {
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;
 		$this->rekt = $rekt;
-		$this->fourStocked = $fourStocked;
-		$this->epicString = $epicString;
 	}
 
 	function getName() {
@@ -71,20 +65,28 @@ class ssbmPlayer {
 }
 
 class ssbmPro extends ssbmPlayer {
+	function __construct($firstName, $lastName, $rekt, $flashyPlay) {
+		parent::__construct($firstName, $lastName, $rekt);
+		$this->flashyPlay = $flashyPlay;
+	}
 	function greet() {
-		return $this->epicString;
+		return $this->flashyPlay;
 	}
 }
 
 class ssbmN00b extends ssbmPlayer {
+	function __construct($firstName, $lastName, $rekt, $fourStocked) {
+		parent::__construct($firstName, $lastName, $rekt);
+		$this->fourStocked = $fourStocked;
+	}
 	function hello() {
 		return $this->fourStocked . $this->rekt;
 	}
 }
 
 
-$player = new ssbmPlayer("C9", "MaNg0" ,"no" ,"no", "yes");
-echo "New Super Smash Bros Melee Player " . $player->getName() . " is destroying everyone!";
+$ssbmPro = new ssbmPro("C9", "MaNg0" ,"no", "yes");
+echo "Super Smash Bros Melee Pro " . $ssbmPro->getName() . " is destroying everyone!";
 
 echo "<br>";
 
@@ -94,15 +96,11 @@ class Criminal {
 	public $firstName;
 	public $lastName;
 	public $prisonSentence;
-	public $crime;
-	public $bail;
 
-	function __construct($firstName, $lastName, $prisonSentence, $crime, $bail) {
+	function __construct($firstName, $lastName, $prisonSentence) {
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;
 		$this->prisonSentence = $prisonSentence;
-		$this->crime = $crime;
-		$this->bail = $bail;
 	}
 
 	function getName() {
@@ -112,19 +110,27 @@ class Criminal {
 }
 
 class GradeA extends Criminal {
+	function __construct($firstName, $lastName, $prisonSentence, $crime) {
+		parent::__construct($firstName, $lastName, $prisonSentence);
+		$this->crime = $crime;
+	}
 	function greet() {
-		return $this->crime . $this->prisonSentence;
+		return $this->crime;
 	}
 }
 
 class GradeF extends Criminal {
+	function __construct($firstName, $lastName, $prisonSentence, $bail) {
+		parent::__construct($firstName, $lastName, $prisonSentence);
+		$this->bail = $bail;
+	}
 	function hello() {
-		return $this->crime . $this->prisonSentence;
+		return $this->bail;
 	}
 }
 
 
-$criminal = new Criminal("Diego", "Sanchez" ,"life sentence" ,"murder", "$100,00");
-echo "Criminal " . $criminal->getName() . " murdered Phillip!";
+$GradeA = new GradeA("Diego", "Sanchez" ,"life sentence" ,"murder");
+echo "Grade A Criminal " . $GradeA->getName() . " murdered Phillip!";
 
 echo "<br>";
